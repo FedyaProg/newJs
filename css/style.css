@@ -8,3 +8,9 @@ body {
     margin: 0;
     background-color: #454545;
 }
+
+.container {
+    width: 100%;
+    max-width: 1080px;
+    margin: auto;
+}
