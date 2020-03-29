@@ -6,7 +6,8 @@ let mission = 'планы';
 let period = 'период';
 
 
-alert('Fucking beach github programming sun of the beach');
+alert('trying to study git by spending ' + money);
+
 console.log(income + ' через програмирования');
 
 
