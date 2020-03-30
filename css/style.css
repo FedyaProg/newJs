@@ -20,3 +20,28 @@ body {
     -moz-box-shadow: 0px 20px 28px -4px rgba(0,0,0,0.57);
     box-shadow: 0px 20px 28px -4px rgba(0,0,0,0.57);
 }
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+.header__title {
+    text-align: center;
+    position: relative;
+}
+
+.btn {
+    position: fixed;
+    top: 15px;
+    right: 130px;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #69ccab;
+
+    text-align: center;
+    padding: 10px 30px;
+    font-size: 18px;
+    border: 1px solid #69ccab;
+
+}
