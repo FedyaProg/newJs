@@ -1,25 +1,48 @@
-let money = 10000;
-let income = 'IT Center';
-let addExpenses = 'car, wife, rent';
-let deposit = false;
-let mission = 5000000;
-let period = 12;
+'use strict';
 
-let budgetDay;
+// console.log(confirm('Have you 18 years old')); // true or false   
 
-budgetDay = Math.floor(money/30);
+// let question1 = confirm('Have you 18 yeats old?'); // true, false 
+// let question2 = prompt('Are you sure on your desicion', '18'); // input tag ; +prompt... (to turn typeof Number)
+// console.log(typeof Number(question2));
 
-console.log(typeof money);
-console.log(typeof income);
-console.log(typeof deposit);
 
-console.log(addExpenses.length);
+// console.log(String(10));
+// console.log(typeof (10+''));
+// console.log(typeof (10 .toString()));
 
-console.log('Период равен ' + period + ' месяцев ' + 'Цель заработать ' + '$' + mission);
+// console.log(typeof Number('10'));
+// console.log(typeof +'10');
 
-console.log(addExpenses.split(', '));
+// let num = '10';
+// num *= 1;
+// console.log(typeof num);
 
-console.log(budgetDay);
+// console.log( parseInt('15 px'));
+// console.log( parseFloat('234.3 px'))
+
+let n = 'a';
+switch(n) {
+    case 2:
+    case 'a':
+    case 3:
+        console.log('3')
+        break;
+    case 4:
+        console.log('4');
+        break;
+    case 5: 
+        console.log('5');
+        break;
+    default:
+        console.log('default');
+
+}
+
+let men = 5 ? 'unusual' : 0;
+console.log('result', men);
+
+
 
 
 
