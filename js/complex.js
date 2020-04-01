@@ -9,5 +9,5 @@ for(var i = 0; i < mult.length; i++) {
 }
 console.log(p);
 p = p*p*p;
-console.log(('' + p).substring(0, 2))
+console.log(('' + p).substring(0, 2));
 
