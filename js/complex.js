@@ -2,40 +2,53 @@
 
 // FROM LESSON03 =========================
 
-// let question = prompt('Выберите языка "Eng" или "Rus"?');
-// let weekRus = ['понедельник', 'вторник', 'среда', 'Четверг', 'Пятница', 'Суббота', 'воскресенье'];
-// let weekEng = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+
+let question = prompt('Выберите языка "Eng" или "Rus"?');
+let weekRus = ['понедельник', 'вторник', 'среда', 'Четверг', 'Пятница', 'Суббота', 'воскресенье'];
+let weekEng = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 
 
 
 
-// if( question == 'Rus' || question == 'rus') {
-//     console.log(weekRus);
-// } else if( question == 'Eng' || question == 'eng') {
-//     console.log(weekEng);
-// } else {
-//     console.log('Что то пошло не так');
-// }
+if( question == 'Rus' || question == 'rus') {
+    console.log(weekRus);
+} else if( question == 'Eng' || question == 'eng') {
+    console.log(weekEng);
+} else {
+    console.log('Что то пошло не так');
+}
 
-// switch(question) {
-//     case 'rus':
-//     case 'Rus':
-//         console.log(weekRus);
-//         break;
-//     case 'eng':
-//     case 'Eng':
-//         console.log(weekEng);
-//         break;
-//     default:
-//         console.log('Что то пошло не так');
-// }
+switch(question) {
+    case 'rus':
+    case 'Rus':
+        console.log(weekRus);
+        break;
+    case 'eng':
+    case 'Eng':
+        console.log(weekEng);
+        break;
+    default:
+        console.log('Что то пошло не так');
+}
 
 
-// let namePerson = prompt('Напишите свое имя');
+const arr = [
+    ['rus', weekRus],
+    ['eng', weekEng],
+    ['Eng', weekEng],
+    ['Rus', weekRus]
+];
 
-// (namePerson == 'Artem' || namePerson == 'Артем') ? console.log('Director') : 
-//     (namePerson == 'Maxim' || namePerson == 'Максим') ? console.log('преподаватель') :
-//         console.log('студент');
+for (let i = 0; i < arr.length; i++) {
+    arr[i][0] === question ? console.log(arr[i][1]) : '';
+}
+
+
+let namePerson = prompt('Напишите свое имя');
+
+(namePerson == 'Artem' || namePerson == 'Артем') ? console.log('Director') : 
+    (namePerson == 'Maxim' || namePerson == 'Максим') ? console.log('преподаватель') :
+        console.log('студент');
 
 
 
