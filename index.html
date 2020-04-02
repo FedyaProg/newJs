@@ -81,18 +81,61 @@
     </ul>
     <h1>Function lesson04</h1>
     <ul>
-        <li>function myFunction() {
-        console.log('First function');
-        }
-        myFunction();
+        <li>
+            function myFunction() {
+            console.log('First function');
+            }
+            myFunction();
         </li>
-        <li>const myFun2 = function() {
-        console.log('Second function');
-        }
-        myFun2();
+        <li>
+            const myFun2 = function() {
+            console.log('Second function');
+            }
+            myFun2();
         </li>
-        <li>const myFun3 = new Function('console.log("Third function")');
-        myFun3();
+        <li>
+            const myFun3 = new Function('console.log("Third function")');
+            myFun3();
+        </li>
+        <li>
+            Anonym functions: const sum = function(a, b)  {return a + b; } 
+            const sum2 = new Function('a', 'b', 'return a + b');
+            (function() {
+                console.log('Hello Anonym funtion');
+            })();
+        </li>
+        <li>
+            const doNum = function(a, b, callback) {
+            if(typeof a === 'number' && typeof b === 'number') {
+            callback(a, b);
+            }
+            };
+            doNum(3, 33, function(a, b) {
+            console.log(a + b);
+            });
+        </li>
+        <li>
+            function one(callback) {
+            console.log('Make a reques to the Server');
+            setTimeout( function(){
+            console.log('Recieve data from the Server');
+            callback();
+            }, 1000);
+            }
+            function two() {
+            console.log('Display on the page');
+            }
+            
+            one(two);
+        </li>
+        <li>
+            // Детерминированный функсийа
+            function foo(a, b) {
+            let sum = a + b;
+            return sum;
+            }
+            
+            console.log(foo(10, 5));
         </li>
     </ul>
 
