@@ -2,55 +2,70 @@
 
 // FROM LESSON03 =========================
 
+const fun = function(a) {
+    if(typeof a !== 'string') {
+        console.log('No String');
+        return;
 
-let question = prompt('Выберите языка "Eng" или "Rus"?');
-let weekRus = ['понедельник', 'вторник', 'среда', 'Четверг', 'Пятница', 'Суббота', 'воскресенье'];
-let weekEng = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+    } else {
+        let gather = a.trim();
 
+        if(gather.length > 30) {
+            gather = gather.substring(0, 29) + '...';
+            console.log(gather);
+        } 
+    }
+};
 
-
-
-if( question == 'Rus' || question == 'rus') {
-    console.log(weekRus);
-} else if( question == 'Eng' || question == 'eng') {
-    console.log(weekEng);
-} else {
-    console.log('Что то пошло не так');
-}
-
-switch(question) {
-    case 'rus':
-    case 'Rus':
-        console.log(weekRus);
-        break;
-    case 'eng':
-    case 'Eng':
-        console.log(weekEng);
-        break;
-    default:
-        console.log('Что то пошло не так');
-}
+fun(' adss dgsd gsdg sdfsdfsaf!afsafassdfsafasfassdfafdafsfsfdasfssasdfasfaf ');
 
 
-const arr = [
-    ['rus', weekRus],
-    ['eng', weekEng],
-    ['Eng', weekEng],
-    ['Rus', weekRus]
-];
+// FROM LESSON03 =========================
 
-for (let i = 0; i < arr.length; i++) {
-    arr[i][0] === question ? console.log(arr[i][1]) : '';
-}
+// let question = prompt('Выберите языка "Eng" или "Rus"?');
+// let weekRus = ['понедельник', 'вторник', 'среда', 'Четверг', 'Пятница', 'Суббота', 'воскресенье'];
+// let weekEng = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 
 
-let namePerson = prompt('Напишите свое имя');
+// if( question == 'Rus' || question == 'rus') {
+//     console.log(weekRus);
+// } else if( question == 'Eng' || question == 'eng') {
+//     console.log(weekEng);
+// } else {
+//     console.log('Что то пошло не так');
+// }
 
-(namePerson == 'Artem' || namePerson == 'Артем') ? console.log('Director') : 
-    (namePerson == 'Maxim' || namePerson == 'Максим') ? console.log('преподаватель') :
-        console.log('студент');
+// switch(question) {
+//     case 'rus':
+//     case 'Rus':
+//         console.log(weekRus);
+//         break;
+//     case 'eng':
+//     case 'Eng':
+//         console.log(weekEng);
+//         break;
+//     default:
+//         console.log('Что то пошло не так');
+// }
 
 
+// const arr = [
+//     ['rus', weekRus],
+//     ['eng', weekEng],
+//     ['Eng', weekEng],
+//     ['Rus', weekRus]
+// ];
+
+// for (let i = 0; i < arr.length; i++) {
+//     arr[i][0] === question ? console.log(arr[i][1]) : '';
+// }
+
+
+// let namePerson = prompt('Напишите свое имя');
+
+// (namePerson == 'Artem' || namePerson == 'Артем') ? console.log('Director') : 
+//     (namePerson == 'Maxim' || namePerson == 'Максим') ? console.log('преподаватель') :
+//         console.log('студент');
 
 
 // FROM LESSON 2 =========================
