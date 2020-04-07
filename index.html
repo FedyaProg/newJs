@@ -151,7 +151,117 @@
             }
         </li>
     </ul>
+    <h2>Lesson07</h2>
+    <ul>
+        <li>
+            let car = {
+            model: 'nissan',
+            type: 'sedan',
+            year: 1999,
+            holati: {
+            eshiklar: 'yangi',
+            yonak: 'tanirovka',
+            kraska: 'oq'
+            }
+            };
+            
+            let titleTrans = 'Korobka peredachi',
+            bodyTrans = 'Avtomat korobka';
+            
+            car[titleTrans] = bodyTrans;
+            
+            car.tezlik = function(speed) {
+            console.log('mashina tezligi ' + speed)
+            }
+            
+            car.tezlik(800);
+            
+            console.log(car);
+        </li>
+        <li>
+            let arr = [1, 2, 3, 4, 5];
+            
+            arr[1] = 'cat';
+            
+            arr[arr.length] = 'dog'; // for adding element to the last index
+            
+            arr[45] = 'ghost';
+            
+            console.log(arr);
+            
+            let myArray = new Array(1, 2, 3, 4, 5); // second way to use ARRAY
+            
+            console.log(myArray);
+        </li>
+        <li>
+            let arr = ['apple', 'banana', 'tomato', 'orange'];
+            
+            arr.push('kiwi', 'Tommatooo'); // adding element for Array from last index
+            arr.unshift('Lemon', 'Pineapple') // adding element for Array from 0 index
+            console.log(arr);
+            
+            console.log('method .pop(): ' + arr.pop()); // deleting ...
+            console.log('method .shift(): ' + arr.shift()); //deleting ...
+            console.log(arr.sort()); // sorting ...
+            
+            console.log(arr.slice(1, 3)) // .slice(-3) - display from last index
+            console.log(arr.splice(0, 2, 'nuts', 'onion')); // ESSENTIAL METHOD..., AS SAYS MAXIM)
+            console.log(arr);
+            
+            console.log(arr.join(' - '));
+            console.log(arr.reverse()); // obratnom poryadke
+        </li>
+        <li>
+            let car = {
+            model: 'mazda',
+            type: 'sedan',
+            year: 1999,
+            ['turbo engine']: true,
+            style: {
+            color: 'black',
+            door: 5,
+            window: 'transparense'
+            }
+            }
+            
+            for (let key in car) {
+            console.log(key + ': ' + car[key]);
+            }
+            
+            console.log(Object.keys(car).length);
 
+        </li>
+        <li>
+            let arr = [1, 22, 333, 4, 5];
+
+            for(let i = 0; i < arr.length; i++) {
+                console.log(arr[i]);
+            }
+
+            arr.forEach(function(item, i, array) {
+                console.log( i, item, array );
+            })
+
+            for(let key of arr) {       
+                console.log(key);
+            }
+
+            delete arr[3];
+            console.log(arr);
+
+            let obj = {
+                a: 'aplle',
+                b: true,
+                c: 45
+            }
+
+            delete obj.c;
+            console.log(obj);
+        </li>    
+
+    </ul>
+
+    <h2>Lesson</h2>
 </div>
 
 <script src='js/main.js'></script>
