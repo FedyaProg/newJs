@@ -102,4 +102,3 @@ for (const key in appData) {
     console.log(key + ' = ' + appData[key]);
 }
 
-
