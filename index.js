@@ -19,7 +19,6 @@ const start = document.getElementById('start'),
 
 
 
-
 // const firstTag = document.querySelector('#id_salary_title');
 
 // console.log(firstTag.getAttribute('title'));
