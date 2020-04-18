@@ -81,7 +81,7 @@ let appData = {
         let inputText = document.querySelectorAll('[type="text"]:not(.result-total)');      // SUPER
         let inputAll = document.querySelectorAll('input:not(.period-select)');              // SUPER
 
-        inputAll.forEach(function(element) {        // inputAll.foreach(element => {...})
+        inputAll.forEach(function(element) {        // inputAll.forEach(element => {...})
             element.value = '';
         });
         inputText.forEach(function(element) {
