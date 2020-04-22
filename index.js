@@ -73,7 +73,6 @@ AppData.prototype.start = function () {
     this.getAddIncome();
     this.showResult();
 };
-
 AppData.prototype.reset = function () {
 
     let inputText = document.querySelectorAll('[type="text"]:not(.result-total)');      // SUPER
@@ -119,7 +118,6 @@ AppData.prototype.reset = function () {
     });
     btnPlusExpenses.style.display = 'block';
 };
-
 AppData.prototype.showResult = function () {
     budgetMonthValue.value = this.budgetMonth;
     budgetDayValue.value = this.budgetDay;
@@ -239,24 +237,18 @@ AppData.prototype.calcSavedMoney = function () {
     return this.budgetMonth * periodSelect.value;
 };
 
+AppData.prototype.eventListeners = function() {
+    start.addEventListener('click', this.start.bind(this));
+    btnPlusIncome.addEventListener('click', this.addIncomeBlock);
+    btnPlusExpenses.addEventListener('click', this.addExpensesBlock);
+    periodSelect.addEventListener('change', this.getPeriod.bind(this));
+    cancel.addEventListener('click', this.reset.bind(this));
+};
 
 const appData = new AppData();
-
+appData.eventListeners();
 console.log(appData);
 
 
 
-
-
-
-
-
-
-
-
-start.addEventListener('click', appData.start.bind(appData));
-btnPlusIncome.addEventListener('click', appData.addIncomeBlock.bind(appData));
-btnPlusExpenses.addEventListener('click', appData.addExpensesBlock.bind(appData));
-periodSelect.addEventListener('change', appData.getPeriod.bind(appData));
-cancel.addEventListener('click', appData.reset.bind(appData));
 /////// //////// ///////// //////// //////////  //////////////  ///////   ///////////   /////////   //////
