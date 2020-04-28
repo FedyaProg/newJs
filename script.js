@@ -25,13 +25,13 @@ console.log(newArr);
 
 // second variant
 
-myLesson.forEach((item) => (item.status) ? 'true value is not need' : newArr.push(item));
-console.log(newArr);
+// myLesson.forEach((item) => (item.status) ? 'true value is not need' : newArr.push(item));
+console.log(newArr, 'secont way');
 
 // third variant
 
 newArr = myLesson.filter((item) => !item.status);
-console.log(newArr);
+console.log(newArr, 'third way');
 
 
 
