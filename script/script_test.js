@@ -24,14 +24,14 @@ console.log(Date.parse('1 january 2020'));
 
 // date.setDate(date.getDate() + 100);
 
-// console.log(date);
-// console.log('Year', date.getFullYear());
-// console.log('Month', date.getMonth() + 1);
-// console.log('Date', date.getDate());
-// console.log('Week day', date.getDay());
-// console.log('Hours', date.getHours());
-// console.log('Hours', date.getMinutes());
-// console.log('Hours', date.getSeconds());
+console.log(date);
+console.log('Year', date.getFullYear());
+console.log('Month', date.getMonth() + 1);
+console.log('Date', date.getDate());
+console.log('Week day', date.getDay());
+console.log('Hours', date.getHours());
+console.log('Hours', date.getMinutes());
+console.log('Hours', date.getSeconds());
 
 
 
