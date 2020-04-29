@@ -21,18 +21,19 @@ window.addEventListener('DOMContentLoaded', () => {
 
         }
 
-        function updateClock() {
+        function correctFormate(data) {
+            if (data < 10) {
+                data = '0' + data;
+            }
+            return data;
+        }
+
+        setInterval(() => {
             const timer = getTimeRemaining();
 
-            timerHours.textContent = timer.hours;
-            timerMinutes.textContent = timer.minutes;
-            timerSeconds.textContent = timer.seconds;
-
-            // if (timer.seconds < 10) {
-            //     timerSeconds.textContent = '0' + timer.seconds;
-            // }
-            // console.log(timer.seconds);
-
+            timerHours.textContent = correctFormate(timer.hours);
+            timerMinutes.textContent = correctFormate(timer.minutes);
+            timerSeconds.textContent = correctFormate(timer.seconds);
 
             if (timer.seconds < 0) {
                 timerHours.textContent = '00';
@@ -40,11 +41,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 timerSeconds.textContent = '00';
             }
 
-            if (timer.timeRemaining > 0) {
-                setInterval(updateClock, 1000);
-            }
-        }
-        updateClock();
+            // if (timer.timeRemaining > 0) {
+            //     setInterval(updateClock, 1000);
+            // }
+        }, 1000);
+
     }
     countTimer('1 may 2020');
 
