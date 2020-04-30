@@ -60,4 +60,7 @@ window.addEventListener('DOMContentLoaded', () => {
     oclock.textContent = `Текущее время ${time(hours)}:${time(minutes)}:${time(seconds)} PM`;
     newYear.textContent = periodDay;
 
+
+    
+
 });

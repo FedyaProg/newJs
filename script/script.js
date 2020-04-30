@@ -17,7 +17,12 @@ window.addEventListener('DOMContentLoaded', () => {
                 minutes = Math.floor((timeRemaining / 60) % 60),
                 hours = Math.floor(timeRemaining / 60 / 60);
             // console.log(seconds);
-            return { timeRemaining, hours, minutes, seconds };
+            return {
+                timeRemaining,
+                hours,
+                minutes,
+                seconds
+            };
 
         }
 
@@ -48,6 +53,38 @@ window.addEventListener('DOMContentLoaded', () => {
 
     }
     countTimer('1 may 2020');
+
+    // Menu
+    const toggleMenu = () => {
+
+        const btnMenu = document.querySelector('.menu'),
+            menu = document.querySelector('menu'),
+            closeBtn = document.querySelector('.close-btn'),
+            menuItems = menu.querySelectorAll('ul>li');
+
+        const handlerMenu = () => {
+            if (!menu.style.transform || menu.style.transform === `translateX(-100%)`) {
+                menu.style.transform = `translateX(0)`;
+            } else {
+                menu.style.transform = `translateX(-100%)`;
+            }
+
+            btnMenu.classList.add('.active-menu');
+        };
+
+        btnMenu.addEventListener('click', handlerMenu);
+        closeBtn.addEventListener('click', handlerMenu);
+
+        menuItems.forEach((item) => {
+            item.addEventListener('click', handlerMenu);
+        });
+
+
+
+    };
+    toggleMenu();
+
+
 
 });
 
@@ -102,10 +139,3 @@ window.addEventListener('DOMContentLoaded', () => {
 //     setInterval(countTimer, 1000, '1 may 2020');
 
 // });
-
-
-
-
-
-
-
