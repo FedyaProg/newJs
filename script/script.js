@@ -63,13 +63,7 @@ window.addEventListener('DOMContentLoaded', () => {
             menuItems = menu.querySelectorAll('ul>li');
 
         const handlerMenu = () => {
-            if (!menu.style.transform || menu.style.transform === `translateX(-100%)`) {
-                menu.style.transform = `translateX(0)`;
-            } else {
-                menu.style.transform = `translateX(-100%)`;
-            }
-
-            btnMenu.classList.add('.active-menu');
+            menu.classList.toggle('active-menu');
         };
 
         btnMenu.addEventListener('click', handlerMenu);
@@ -78,13 +72,27 @@ window.addEventListener('DOMContentLoaded', () => {
         menuItems.forEach((item) => {
             item.addEventListener('click', handlerMenu);
         });
-
-
-
     };
     toggleMenu();
 
+    // PopUp
+    const toggelePopUp = () => {
+        const popUp = document.querySelector('.popup'),
+            popUpBtn = document.querySelectorAll('.popup-btn'),
+            popUpClose = document.querySelector('.popup-close');
 
+        popUpBtn.forEach((elem) => {
+            elem.addEventListener('click', () => {
+                popUp.style.display = 'block';
+            })
+        })
+
+        popUpClose.addEventListener('click', () => {
+            popUp.style.display = 'none';
+        })
+
+    };
+    toggelePopUp();
 
 });
 
