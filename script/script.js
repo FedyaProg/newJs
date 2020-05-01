@@ -63,10 +63,13 @@ window.addEventListener('DOMContentLoaded', () => {
             menuItems = menu.querySelectorAll('ul>li');
 
         const handlerMenu = () => {
-            menu.classList.toggle('active-menu');
+
+            // PROSTA OLDINGI VIDEONI KO'R PRAKTIKA QIL KEYIN BUNI BOSHLA!!!
         };
 
-        btnMenu.addEventListener('click', handlerMenu);
+        // let idInterval = setInterval(handlerMenu, 10);
+
+        // btnMenu.addEventListener('click', handlerMenu);
         closeBtn.addEventListener('click', handlerMenu);
 
         menuItems.forEach((item) => {
@@ -121,29 +124,29 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
-// window.addEventListener('DOMContentLoaded', () => {
-//     'use strict';
+// // window.addEventListener('DOMContentLoaded', () => {
+// //     'use strict';
 
-//     // Timer
-//     function countTimer(deadline) {
-//         let timerHours = document.querySelector('#timer-hours'),
-//             timerMinutes = document.querySelector('#timer-minutes'),
-//             timerSeconds = document.querySelector('#timer-seconds'),
-//             dateStop = new Date(deadline).getTime(),
-//             dateNow = new Date().getTime(),
-//             timeRemaining = (dateStop - dateNow) / 1000,
-//             seconds = Math.floor(timeRemaining % 60),
-//             minutes = Math.floor((timeRemaining / 60) % 60),
-//             hours = Math.floor(timeRemaining / 60 / 60);
+// //     // Timer
+// //     function countTimer(deadline) {
+// //         let timerHours = document.querySelector('#timer-hours'),
+// //             timerMinutes = document.querySelector('#timer-minutes'),
+// //             timerSeconds = document.querySelector('#timer-seconds'),
+// //             dateStop = new Date(deadline).getTime(),
+// //             dateNow = new Date().getTime(),
+// //             timeRemaining = (dateStop - dateNow) / 1000,
+// //             seconds = Math.floor(timeRemaining % 60),
+// //             minutes = Math.floor((timeRemaining / 60) % 60),
+// //             hours = Math.floor(timeRemaining / 60 / 60);
 
-//             // days = Math.floor(timeRemaining / 60 / 60 / 24);
+// //             // days = Math.floor(timeRemaining / 60 / 60 / 24);
 
-//             timerHours.textContent = hours;
-//             timerMinutes.textContent = minutes;
-//             timerSeconds.textContent = seconds;
+// //             timerHours.textContent = hours;
+// //             timerMinutes.textContent = minutes;
+// //             timerSeconds.textContent = seconds;
 
-//     }
-//     // countTimer('1 may 2020');
-//     setInterval(countTimer, 1000, '1 may 2020');
+// //     }
+// //     // countTimer('1 may 2020');
+// //     setInterval(countTimer, 1000, '1 may 2020');
 
-// });
+// // });
