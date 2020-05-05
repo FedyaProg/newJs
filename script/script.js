@@ -92,7 +92,7 @@ window.addEventListener('DOMContentLoaded', () => {
         btnMenu.addEventListener('click', handlerMenu);
         closeBtn.addEventListener('click', handlerMenu);
 
-        menuItems.forEach((item) => {
+        menuItems.forEach(item => {
             item.addEventListener('click', handlerMenu);
         });
     };
@@ -103,13 +103,13 @@ window.addEventListener('DOMContentLoaded', () => {
         const popUp = document.querySelector('.popup'),
             popUpBtn = document.querySelectorAll('.popup-btn');
 
-        popUpBtn.forEach((elem) => {
+        popUpBtn.forEach(elem => {
             elem.addEventListener('click', () => {
                 popUp.style.display = 'block';
             });
         });
 
-        popUp.addEventListener('click', (event) => {
+        popUp.addEventListener('click', event => {
             let target = event.target;
 
             if (target.classList.contains('popup-close')) {
@@ -131,7 +131,7 @@ window.addEventListener('DOMContentLoaded', () => {
             tab = tabHeader.querySelectorAll('.service-header-tab'),
             tabContent = document.querySelectorAll('.service-tab');
 
-        const toggleTabContent = (index) => {
+        const toggleTabContent = index => {
             for (let i = 0; i < tabContent.length; i++) {
                 if (index === i) {
                     tab[i].classList.add('active');
@@ -143,7 +143,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        tabHeader.addEventListener('click', (event) => {
+        tabHeader.addEventListener('click', event => {
             let target = event.target;
             target = target.closest('.service-header-tab');
             if (target) {
