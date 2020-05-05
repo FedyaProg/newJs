@@ -68,33 +68,39 @@ window.addEventListener('DOMContentLoaded', () => {
             if (document.documentElement.clientWidth < 768) {
                 menu.style.transform = `translateX(${0})`;
                 return;
-            }
-            fly = requestAnimationFrame(hidden);
-            move += 5;
-            menu.style.transform = `translateX(${move}%)`;
+            } else {
+                fly = requestAnimationFrame(hidden);
+                move += 4;
+                menu.style.transform = `translateX(${move}%)`;
 
-            if (move === 0) {
-                cancelAnimationFrame(fly);
-                move = -100;
+                if (move === 0) {
+                    cancelAnimationFrame(fly);
+                    move = -100;
+                }
             }
 
         };
 
-        const handlerMenu = () => {
+        const handlerMenu = (event) => {
+
+            let target = event.target;
+
             if (!menu.style.transform || menu.style.transform === `translateX(-100%)`) {
                 hidden();
-            } else {
+            } else if (menu.style.transform) {
+                menu.style.transform = `translateX(-100%)`;
+            } else if (target.tagName !== 'MENU' && target.closest('menu')) {
                 menu.style.transform = `translateX(-100%)`;
             }
 
         };
 
-        btnMenu.addEventListener('click', handlerMenu);
-        closeBtn.addEventListener('click', handlerMenu);
-
         menuItems.forEach(item => {
             item.addEventListener('click', handlerMenu);
         });
+        btnMenu.addEventListener('click', handlerMenu);
+        closeBtn.addEventListener('click', handlerMenu);
+
     };
     toggleMenu();
 
@@ -169,6 +175,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
+// eslint-disable-next-line max-len
 // closest('') class, id va teg ni faqat ota elementlardan qiridari va html document gacha ko'tarildi, agar topolmasa "null" qaytaradi!
 
 // while (target !== tabHeader) {   // "while" orqali "span" ga clickni ishlatish

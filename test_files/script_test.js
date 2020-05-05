@@ -54,41 +54,39 @@ console.log('Hours', date.getSeconds());
 
 
 
-const logo = document.querySelector('.logo'),
-    menu = document.querySelector('.menu'),
-    mediaLeft = document.querySelector('.media phone-media');
+// const logo = document.querySelector('.logo'),
+//     menu = document.querySelector('.menu'),
+//     mediaLeft = document.querySelector('.media phone-media');
 
-let count = 0;
+// let count = 0;
 
-let requestAnim;
-let logoMove = function () {
-    requestAnim = requestAnimationFrame(logoMove);
-    count++;
+// let requestAnim;
+// let logoMove = function () {
+//     requestAnim = requestAnimationFrame(logoMove);
+//     count++;
 
-    if (count < 300) {
-        logo.style.left = count * 3 + 'px';
-        menu.style.top = count + 'px';
-    } else if (count < 600) {
-        logo.style.left = count * 2 + 'px';
-    } else {
-        cancelAnimationFrame(requestAnim);
-    }
-}
+//     if (count < 300) {
+//         logo.style.left = count * 3 + 'px';
+//         menu.style.top = count + 'px';
+//     } else if (count < 600) {
+//         logo.style.left = count * 2 + 'px';
+//     } else {
+//         cancelAnimationFrame(requestAnim);
+//     }
+// }
 
-let animate = true;
-document.addEventListener('click', function() {
-    if (animate) {
-        requestAnim = requestAnimationFrame(logoMove);
-        animate = false;
-    } else {
-        cancelAnimationFrame(requestAnim);
-        animate = true;
-    }
-});
+// let animate = true;
+// document.addEventListener('click', function() {
+//     if (animate) {
+//         requestAnim = requestAnimationFrame(logoMove);
+//         animate = false;
+//     } else {
+//         cancelAnimationFrame(requestAnim);
+//         animate = true;
+//     }
+// });
 
-// requestAnim = requestAnimationFrame(logoMove);
-
-
+// // requestAnim = requestAnimationFrame(logoMove);
 
 
 
@@ -107,19 +105,21 @@ document.addEventListener('click', function() {
 
 
 
-let logoMove = function () {
-    count++;
 
-    if(count < 300) {
-        logo.style.left = count * 2 + 'px';
-        menu.style.top = count + 'px';
-    } else if( count < 600) {
-        logo.style.left = count * 2+ 'px';
-    } else {
-        clearInterval(idInterval);
-    }
-}
-let idInterval = setInterval(logoMove, 10);
+
+// let logoMove = function () {
+//     count++;
+
+//     if(count < 300) {
+//         logo.style.left = count * 2 + 'px';
+//         menu.style.top = count + 'px';
+//     } else if( count < 600) {
+//         logo.style.left = count * 2+ 'px';
+//     } else {
+//         clearInterval(idInterval);
+//     }
+// }
+// let idInterval = setInterval(logoMove, 10);
 
 
 

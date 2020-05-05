@@ -21,6 +21,7 @@ window.addEventListener('DOMContentLoaded', () => {
         messageDayTime = 'Добрый день';
     }
 
+    // eslint-disable-next-line prefer-const
     messageDay = new Array();
     messageDay[0] = "Воскресенье";
     messageDay[1] = "Понедельник";
@@ -59,8 +60,5 @@ window.addEventListener('DOMContentLoaded', () => {
     dayTime.textContent = `Сегодня ${messageDay[weekDay]}`;
     oclock.textContent = `Текущее время ${time(hours)}:${time(minutes)}:${time(seconds)} PM`;
     newYear.textContent = periodDay;
-
-
-    
 
 });
