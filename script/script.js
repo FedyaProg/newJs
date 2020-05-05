@@ -62,14 +62,34 @@ window.addEventListener('DOMContentLoaded', () => {
             closeBtn = document.querySelector('.close-btn'),
             menuItems = menu.querySelectorAll('ul>li');
 
-        const handlerMenu = () => {
+        let fly;
+        let move = -100;
+        const hidden = () => {
+            if (document.documentElement.clientWidth < 768) {
+                menu.style.transform = `translateX(${0})`;
+                return;
+            }
+            fly = requestAnimationFrame(hidden);
+            move += 5;
+            menu.style.transform = `translateX(${move}%)`;
 
-            // PROSTA OLDINGI VIDEONI KO'R PRAKTIKA QIL KEYIN BUNI BOSHLA!!!
+            if (move === 0) {
+                cancelAnimationFrame(fly);
+                move = -100;
+            }
+
         };
 
-        // let idInterval = setInterval(handlerMenu, 10);
+        const handlerMenu = () => {
+            if (!menu.style.transform || menu.style.transform === `translateX(-100%)`) {
+                hidden();
+            } else {
+                menu.style.transform = `translateX(-100%)`;
+            }
 
-        // btnMenu.addEventListener('click', handlerMenu);
+        };
+
+        btnMenu.addEventListener('click', handlerMenu);
         closeBtn.addEventListener('click', handlerMenu);
 
         menuItems.forEach((item) => {
@@ -81,21 +101,61 @@ window.addEventListener('DOMContentLoaded', () => {
     // PopUp
     const toggelePopUp = () => {
         const popUp = document.querySelector('.popup'),
-            popUpBtn = document.querySelectorAll('.popup-btn'),
-            popUpClose = document.querySelector('.popup-close');
+            popUpBtn = document.querySelectorAll('.popup-btn');
 
         popUpBtn.forEach((elem) => {
             elem.addEventListener('click', () => {
                 popUp.style.display = 'block';
-            })
-        })
+            });
+        });
 
-        popUpClose.addEventListener('click', () => {
-            popUp.style.display = 'none';
-        })
+        popUp.addEventListener('click', (event) => {
+            let target = event.target;
+
+            if (target.classList.contains('popup-close')) {
+                popUp.style.display = 'none';
+            } else {
+                target = target.closest('.popup-content');
+                if (!target) {
+                    popUp.style.display = 'none';
+                }
+            }
+        });
 
     };
     toggelePopUp();
+
+    // Tabs
+    const tabs = () => {
+        const tabHeader = document.querySelector('.service-header'),
+            tab = tabHeader.querySelectorAll('.service-header-tab'),
+            tabContent = document.querySelectorAll('.service-tab');
+
+        const toggleTabContent = (index) => {
+            for (let i = 0; i < tabContent.length; i++) {
+                if (index === i) {
+                    tab[i].classList.add('active');
+                    tabContent[i].classList.remove('d-none');
+                } else {
+                    tab[i].classList.remove('active');
+                    tabContent[i].classList.add('d-none');
+                }
+            }
+        };
+
+        tabHeader.addEventListener('click', (event) => {
+            let target = event.target;
+            target = target.closest('.service-header-tab');
+            if (target) {
+                tab.forEach((item, i) => {
+                    if (item === target) {
+                        toggleTabContent(i);
+                    }
+                });
+            }
+        });
+    };
+    tabs();
 
 });
 
@@ -109,8 +169,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
+// closest('') class, id va teg ni faqat ota elementlardan qiridari va html document gacha ko'tarildi, agar topolmasa "null" qaytaradi!
 
+// while (target !== tabHeader) {   // "while" orqali "span" ga clickni ishlatish
 
+// target = target.parentNode;  } // while ni sharti "parentNode" bilan amalga oshiriladi
 
 
 
