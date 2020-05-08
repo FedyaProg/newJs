@@ -81,9 +81,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
         };
 
-        const handlerMenu = (event) => {
+        const handlerMenu = event => {
 
-            let target = event.target;
+            const target = event.target;
 
             if (!menu.style.transform || menu.style.transform === `translateX(-100%)`) {
                 hidden();
@@ -212,10 +212,10 @@ window.addEventListener('DOMContentLoaded', () => {
             clearInterval(interval);
         };
 
-        slider.addEventListener('click', (event) => {
+        slider.addEventListener('click', event => {
             event.preventDefault();
 
-            let target = event.target;
+            const target = event.target;
 
             if (!target.matches('.dot, .portfolio-btn')) {
                 return;
@@ -247,13 +247,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
         });
 
-        slider.addEventListener('mouseover', (event) => {
+        slider.addEventListener('mouseover', event => {
             if (event.target.matches('.dot') || event.target.matches('.portfolio-btn')) {
                 stopSlide();
             }
         });
 
-        slider.addEventListener('mouseout', (event) => {
+        slider.addEventListener('mouseout', event => {
             if (event.target.matches('.dot') || event.target.matches('.portfolio-btn')) {
                 startSlide();
             }
@@ -263,6 +263,60 @@ window.addEventListener('DOMContentLoaded', () => {
 
     };
     slider();
+
+    // Command
+    const command = () => {
+
+        const img = document.querySelectorAll('.command__photo'),
+            command = document.getElementById('command');
+        let newPhoto;
+
+        command.addEventListener('mouseover', event => {
+            const target = event.target;
+
+            if (target.matches('.command__photo')) {
+                console.log('bunisi endi uxladi');
+                img.forEach(item => {
+                    if (target === item) {
+                        newPhoto = item.src;
+                        item.src = target.dataset.img;
+                        // event.target.src = e.t.dataset.img;
+                    }
+                });
+            }
+        });
+
+        command.addEventListener('mouseout', event => {
+            const target = event.target;
+
+            if (target.matches('.command__photo')) {
+                img.forEach(item => {
+                    if (target === item) {
+                        item.src = newPhoto;
+                    }
+                });
+            }
+        });
+
+    };
+    command();
+
+    // Calculate cost
+    const calculateCost = () => {
+        const calculate = document.getElementById('calc');
+        calculate.addEventListener('keydown', event => {
+
+            const target = event.target;
+
+            if (/[^\d]/g.test(target.value) ||
+                target.type !== 'number' ||
+                event.keyCode > 100 ||
+                event.keyCode === 69) { event.preventDefault(); }
+
+        });
+    };
+    calculateCost();
+
 
 });
 
