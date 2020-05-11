@@ -371,28 +371,9 @@ window.addEventListener('DOMContentLoaded', () => {
             loadMessage = 'Loading...',
             successMessage = 'Thanks, We will contact you!';
 
-        const form = document.getElementById('form1');
+        const forms = document.querySelectorAll('form');
         const statusMessage = document.createElement('div');
-        form.append(statusMessage);
         statusMessage.style.cssText = 'font-size: 2rem;';
-
-        form.addEventListener('submit', event => {
-            event.preventDefault();
-            form.append(statusMessage);
-            statusMessage.textContent = loadMessage;
-
-            const formData = new FormData(form);
-            let body = {};
-            for (let val of formData.entries()) {
-                body[val[0]] = val[1];
-            }
-            postData(body, () => {
-                statusMessage.textContent = successMessage;
-            }, (error) => {
-                statusMessage.textContent = errorMessage;
-                console.error(error);
-            });
-        });
 
         const postData = (body, outputData, errorData) => {
             const request = new XMLHttpRequest();
@@ -412,6 +393,41 @@ window.addEventListener('DOMContentLoaded', () => {
             request.send(JSON.stringify(body));
         };
 
+        forms.forEach(form => {
+            form.addEventListener('input', event => {
+                let target = event.target;
+                if (target.name === 'user_phone') {
+                    target.value = target.value.replace(/[^\+\d]/g, '');
+                }
+                if (target.name === 'user_name' || target.name === 'user_message') {
+                    target.value = target.value.replace(/[^а-я ]/gi, '');
+                }
+            });
+
+            form.addEventListener('submit', event => {
+                event.preventDefault();
+                form.append(statusMessage);
+                statusMessage.style.cssText = `font-size: 2rem;
+              color: #fff; `;
+                const formData = new FormData(form);
+                statusMessage.textContent = loadMessage;
+
+                let body = {};
+                for (let val of formData.entries()) {
+                    body[val[0]] = val[1];
+                }
+                postData(body,
+                    () => {
+                        statusMessage.style.cssText = `font-size: 2rem; color: white;`;
+                        statusMessage.textContent = successMessage;
+                        form.reset();
+                    },
+                    (error) => {
+                        statusMessage.style.cssText = `font-size: 2rem; color: red;`;
+                        statusMessage.textContent = errorMessage;
+                    });
+            });
+        });
     };
     sendForm();
 
