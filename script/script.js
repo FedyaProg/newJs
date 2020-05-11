@@ -352,8 +352,8 @@ window.addEventListener('DOMContentLoaded', () => {
         };
 
 
-        calcBlock.addEventListener('change', (event) => {
-            let target = event.target;
+        calcBlock.addEventListener('change', event => {
+            const target = event.target;
             if (target.matches('.calc-type') || target.matches('.calc-square') ||
                 target.matches('.calc-count') || target.matches('.calc-day')) {
 
@@ -395,7 +395,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         forms.forEach(form => {
             form.addEventListener('input', event => {
-                let target = event.target;
+                const target = event.target;
                 if (target.name === 'user_phone') {
                     target.value = target.value.replace(/[^\+\d]/g, '');
                 }
@@ -407,25 +407,29 @@ window.addEventListener('DOMContentLoaded', () => {
             form.addEventListener('submit', event => {
                 event.preventDefault();
                 form.append(statusMessage);
-                statusMessage.style.cssText = `font-size: 2rem;
-              color: #fff; `;
+                statusMessage.style.cssText = `font-size: 2rem; color: white; `;
                 const formData = new FormData(form);
                 statusMessage.textContent = loadMessage;
 
-                let body = {};
-                for (let val of formData.entries()) {
+                const body = {};
+                for (const val of formData.entries()) {
                     body[val[0]] = val[1];
                 }
-                postData(body,
-                    () => {
-                        statusMessage.style.cssText = `font-size: 2rem; color: white;`;
-                        statusMessage.textContent = successMessage;
-                        form.reset();
-                    },
-                    (error) => {
-                        statusMessage.style.cssText = `font-size: 2rem; color: red;`;
-                        statusMessage.textContent = errorMessage;
-                    });
+                const outputData = () => {
+                    statusMessage.style.cssText = `font-size: 2rem; color: green; `;
+                    statusMessage.textContent = successMessage;
+                    form.reset();
+                };
+
+                const error = () => {
+                    statusMessage.style.cssText = `font-size: 2rem; color: red; `;
+                    statusMessage.textContent = errorMessage;
+                };
+
+
+                postData(body)
+                    .then(outputData)
+                    .catch(error);
             });
         });
     };
