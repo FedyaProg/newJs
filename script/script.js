@@ -364,60 +364,56 @@ window.addEventListener('DOMContentLoaded', () => {
     };
     calc(100);
 
+    // Send-ajax-form
+    const sendForm = () => {
+
+        const errorMessage = 'Something gone wrong!',
+            loadMessage = 'Loading...',
+            successMessage = 'Thanks, We will contact you!';
+
+        const form = document.getElementById('form1');
+        const statusMessage = document.createElement('div');
+        form.append(statusMessage);
+        statusMessage.style.cssText = 'font-size: 2rem;';
+
+        form.addEventListener('submit', event => {
+            event.preventDefault();
+            form.append(statusMessage);
+            statusMessage.textContent = loadMessage;
+
+            const formData = new FormData(form);
+            let body = {};
+            for (let val of formData.entries()) {
+                body[val[0]] = val[1];
+            }
+            postData(body, () => {
+                statusMessage.textContent = successMessage;
+            }, (error) => {
+                statusMessage.textContent = errorMessage;
+                console.error(error);
+            });
+        });
+
+        const postData = (body, outputData, errorData) => {
+            const request = new XMLHttpRequest();
+            request.addEventListener('readystatechange', () => {
+                if (request.readyState !== 4) {
+                    return;
+                }
+                if (request.status === 200) {
+                    outputData();
+                } else {
+                    errorData(request.status);
+                }
+            });
+            request.open('POST', './server.php');
+            request.setRequestHeader('Content-Type', 'multipart/json');
+
+            request.send(JSON.stringify(body));
+        };
+
+    };
+    sendForm();
+
 });
 
-
-
-
-
-
-
-
-
-
-
-// eslint-disable-next-line max-len
-// closest('') class, id va teg ni faqat ota elementlardan qiridari va html document gacha ko'tarildi, agar topolmasa "null" qaytaradi!
-
-// while (target !== tabHeader) {   // "while" orqali "span" ga clickni ishlatish
-
-// target = target.parentNode;  } // while ni sharti "parentNode" bilan amalga oshiriladi
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // window.addEventListener('DOMContentLoaded', () => {
-// //     'use strict';
-
-// //     // Timer
-// //     function countTimer(deadline) {
-// //         let timerHours = document.querySelector('#timer-hours'),
-// //             timerMinutes = document.querySelector('#timer-minutes'),
-// //             timerSeconds = document.querySelector('#timer-seconds'),
-// //             dateStop = new Date(deadline).getTime(),
-// //             dateNow = new Date().getTime(),
-// //             timeRemaining = (dateStop - dateNow) / 1000,
-// //             seconds = Math.floor(timeRemaining % 60),
-// //             minutes = Math.floor((timeRemaining / 60) % 60),
-// //             hours = Math.floor(timeRemaining / 60 / 60);
-
-// //             // days = Math.floor(timeRemaining / 60 / 60 / 24);
-
-// //             timerHours.textContent = hours;
-// //             timerMinutes.textContent = minutes;
-// //             timerSeconds.textContent = seconds;
-
-// //     }
-// //     // countTimer('1 may 2020');
-// //     setInterval(countTimer, 1000, '1 may 2020');
-
-// // });
