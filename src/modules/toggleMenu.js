@@ -45,3 +45,7 @@ const toggleMenu = () => {
     closeBtn.addEventListener('click', handlerMenu);
 
 };
+
+
+
+export default toggleMenu;

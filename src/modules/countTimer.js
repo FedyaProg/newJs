@@ -46,3 +46,6 @@ function countTimer(deadline) {
     }, 1000);
 
 }
+
+
+export default countTimer;
