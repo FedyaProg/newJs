@@ -6,9 +6,9 @@ module.exports = {
         main: './src/index.js'
     },
     output: {
-        path: path.resolve(__dirname, './dist'),
+        path: path.resolve(__dirname, './dist/'),
         filename: '[name].js',
-        punlicPath: '/dist'
+        publicPath: '/dist/'
     },
     devServer: {
         overlay: true
@@ -18,9 +18,8 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
-                excude: '/node_modules/'
+                exclude: '/node_modules'
             }
         ]
     }
 };
-
