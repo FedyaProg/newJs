@@ -375,23 +375,6 @@ window.addEventListener('DOMContentLoaded', () => {
         const statusMessage = document.createElement('div');
         statusMessage.style.cssText = 'font-size: 2rem;';
 
-        const postData = (body, outputData, errorData) => {
-            const request = new XMLHttpRequest();
-            request.addEventListener('readystatechange', () => {
-                if (request.readyState !== 4) {
-                    return;
-                }
-                if (request.status === 200) {
-                    outputData();
-                } else {
-                    errorData(request.status);
-                }
-            });
-            request.open('POST', './server.php');
-            request.setRequestHeader('Content-Type', 'multipart/json');
-
-            request.send(JSON.stringify(body));
-        };
 
         forms.forEach(form => {
             form.addEventListener('input', event => {
@@ -404,6 +387,15 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
+
+            const postData = body => fetch('./server.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body),
+                mode: 'cors'
+            });
+
+
             form.addEventListener('submit', event => {
                 event.preventDefault();
                 form.append(statusMessage);
@@ -415,8 +407,9 @@ window.addEventListener('DOMContentLoaded', () => {
                 for (const val of formData.entries()) {
                     body[val[0]] = val[1];
                 }
+
                 const outputData = () => {
-                    statusMessage.style.cssText = `font-size: 2rem; color: green; `;
+                    statusMessage.style.cssText = `font-size: 2rem; color: white; `;
                     statusMessage.textContent = successMessage;
                     form.reset();
                 };
@@ -428,7 +421,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
                 postData(body)
-                    .then(outputData)
+                    .then(res => {
+                        if (res.status !== 200) {
+                            throw 'error !!! ';
+                        }
+                        outputData();
+                    })
                     .catch(error);
             });
         });
